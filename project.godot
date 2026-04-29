@@ -15,8 +15,10 @@ config/description="Match falling shapes to score points"
 config/version="0.1.0"
 run/main_scene="uid://bqd1p3jqvfpg1"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 config/boot_splash/enable=false
+config/boot_splash/image="res://icon.svg"
+config/boot_splash/fullsize=false
 
 [display]
 

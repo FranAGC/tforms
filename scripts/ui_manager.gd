@@ -20,7 +20,7 @@ func update_score(score: int):
 	score_label.text = "Score: %d" % score
 
 func update_lives(lives: int):
-	lives_label.text = "Lives: %s" % ("❤ ".repeat(lives))
+	lives_label.text = "Lives: %d" % lives
 
 func show_game_over(final_score: int):
 	last_score_label.text = "Last Score: %d" % final_score

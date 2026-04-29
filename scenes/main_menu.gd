@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var play_button = $HUD/CenterContainer/VBox/PlayButton
 @onready var record_label = $HUD/RecordLabel
