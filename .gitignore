@@ -57,3 +57,6 @@ package-lock.json
 *.a
 *.lib
 *.static.lib
+instructions.txt
+errors.txt
+scenes/main_menu.tscn

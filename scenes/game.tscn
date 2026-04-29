@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://bu45lf3ugq81n"]
+
+[ext_resource type="Script" uid="uid://b6coeti75773p" path="res://scripts/game_manager.gd" id="1"]
+[ext_resource type="Script" uid="uid://dugad7h64fhnh" path="res://scripts/input_manager.gd" id="2"]
+[ext_resource type="Script" uid="uid://hijxu7dgy1w5" path="res://scripts/player_controller.gd" id="3"]
+[ext_resource type="Script" uid="uid://c5sn82syjt8ct" path="res://scripts/score_manager.gd" id="4"]
+[ext_resource type="Script" uid="uid://nnbbpfquaks" path="res://scripts/ui_manager.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/sound_manager.gd" id="6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iywne"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_p57ef"]
+font_size = 40
+
+[node name="Game" type="Node2D" unique_id=2133015415]
+
+[node name="Background" type="ColorRect" parent="." unique_id=50960629]
+layout_mode = 1
+anchors_preset = 15
+anchors_right = 1.0
+anchors_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="GameManager" type="Node" parent="." unique_id=962137460]
+script = ExtResource("1")
+initial_spawn_interval = 2.0
+
+[node name="InputManager" type="Node" parent="." unique_id=506184211]
+script = ExtResource("2")
+
+[node name="Player" type="Area2D" parent="." unique_id=1138931365]
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1781334676]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1209277863]
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1798409628]
+custom_minimum_size = Vector2(200, 60)
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 250.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_iywne")
+
+[node name="LivesLabel" type="Label" parent="HUD" unique_id=104750331]
+custom_minimum_size = Vector2(200, 60)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -330.0
+offset_top = 50.0
+offset_right = -27.0
+offset_bottom = 110.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "Lives: ❤ ❤ ❤"
+label_settings = SubResource("LabelSettings_p57ef")
+horizontal_alignment = 2
+
+[node name="GameOverPanel" type="ColorRect" parent="HUD" unique_id=524824018]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchors_right = 1.0
+anchors_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="GameOverLabel" type="Label" parent="HUD/GameOverPanel" unique_id=1849377396]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LastScoreLabel" type="Label" parent="HUD/GameOverPanel" unique_id=372582252]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.42
+anchor_right = 0.5
+anchor_bottom = 0.42
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Last Score: 0"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="HUD/GameOverPanel" unique_id=1389400751]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+
+[node name="MenuButton" type="Button" parent="HUD/GameOverPanel" unique_id=756034411]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.72
+anchor_right = 0.5
+anchor_bottom = 0.72
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "MENU"
+
+[node name="FlashRect" type="ColorRect" parent="HUD" unique_id=1402302684]
+layout_mode = 1
+anchors_preset = 15
+anchors_right = 1.0
+anchors_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ScoreManager" type="Node" parent="HUD" unique_id=1651395704]
+script = ExtResource("4")
+
+[node name="UIManager" type="Node" parent="HUD" unique_id=1225845125]
+script = ExtResource("5")
+
+[node name="SoundManager" type="AudioStreamPlayer" parent="HUD"]
+script = ExtResource("6")
+volume_db = -6.0

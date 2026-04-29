@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://clfh4rqa4vfse"]
+
+[ext_resource type="Script" path="res://scripts/falling_item.gd" id="1"]
+
+[node name="FallingShape" type="Area2D"]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1")
+fall_speed = 200.0
+shape_size = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
