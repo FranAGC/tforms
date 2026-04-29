@@ -1,0 +1,59 @@
+# Godot 4.6 specific ignores
+.godot/
+*.import
+user://
+
+# Android build artifacts
+/android/
+*.apk
+*.aab
+build/
+.gradle/
+gradlew
+gradlew.bat
+local.properties
+
+# Generated files
+dump.stackdump
+crash_handler.log
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# OS specific
+.DS_Store
+Thumbs.db
+*.lnk
+
+# Development files
+*.log
+*.tmp
+temp/
+
+# Compiled exports
+dist/
+bin/
+export/
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Node modules (if using npm)
+node_modules/
+package-lock.json
+
+# Misc
+*.a
+*.lib
+*.static.lib
